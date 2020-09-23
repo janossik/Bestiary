@@ -40,7 +40,7 @@ const AudioBox = ({ song = Song }) => {
 
   return (
     <div>
-      <AudiosBox>
+      <AudiosBox opacity={play}>
         <audio ref={audio}>
           <source src={song} type="audio/mpeg" />
         </audio>

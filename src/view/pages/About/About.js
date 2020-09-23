@@ -15,9 +15,11 @@ const About = () => {
           }}
         >
           <Title tag="h1">RAIN</Title>
-          <Paragraph>
-            Labore excepteur non incididunt laborum voluptate.
-          </Paragraph>
+          <Title tag="h2">RAIN</Title>
+          <Title tag="h3">RAIN</Title>
+          <Title tag="h4">RAIN</Title>
+          <Title tag="h5">RAIN</Title>
+          <Title tag="h6">RAIN</Title>
         </div>
       </MainTemplate>
       <SwordBackground />

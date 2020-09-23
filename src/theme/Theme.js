@@ -1,9 +1,16 @@
 const Theme = {
   size: {
-    s: '12px',
+    s: '12.8px',
     m: '16px',
     l: '24px',
-    xl: '32px',
+    xl: '36px',
+    xll: '54px',
+  },
+  weight: {
+    light: 300,
+    regular: 400,
+    bold: 700,
+    black: 900,
   },
   color: {
     primary: 'rgb(181,12,15)',
@@ -12,6 +19,7 @@ const Theme = {
     darksecondary: 'rgb(39,39,39)',
     link: 'rgb(234,234,234)',
     text: 'rgb(234,234,234)',
+    box: 'rgba(0, 0, 0, 0.7)',
   },
 };
 

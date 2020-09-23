@@ -20,12 +20,14 @@ const NavigationList = styled.ul`
   li {
     padding: 20px;
     margin-top: 25px;
-    color: snow;
     a {
       text-decoration: none;
-      color: snow;
+      color: ${({ theme }) => theme.color.link};
+      font-size: ${({ theme }) => theme.size.l};
+      font-weight: ${({ theme }) => theme.weight.bold};
       &.active {
-        color: rgb(181, 12, 15);
+        color: ${({ theme }) => theme.color.primary};
+        font-size: ${({ theme }) => theme.size.xl};
       }
     }
   }
@@ -40,19 +42,20 @@ const WrapperForAnimation = styled.span`
     rgba(0, 0, 0, 1),
     rgba(0, 0, 0, 0)
   );
-  transform: translateX(${({ transform }) => (transform ? '-100%' : '0%')})
+  transform: translateX(${({ transform }) => (transform ? '-200%' : '0%')})
     scale(${({ transform }) => (transform ? '2' : '1')});
   opacity: ${({ transform }) => (transform ? '0' : '1')};
-  transition: 2s;
+  transition: 2s ease-out;
   z-index: 12;
 `;
 
 const Button = styled.button`
   position: fixed;
-  background-color: transparent;
-  border: none;
   right: 5px;
   top: 10px;
+  background-color: transparent;
+  border: none;
+  outline: none;
   z-index: 14;
 `;
 
