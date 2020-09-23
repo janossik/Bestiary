@@ -1,6 +1,5 @@
 import React from 'react';
 import Title from '../../../components/atoms/Title/Title';
-import Paragraph from '../../../components/atoms/Paragraph/Paragraph';
 import MainTemplate from '../../templates/MainTemplate';
 import SwordBackground from '../../../components/molecules/SwordBackground/SwordBackground';
 
