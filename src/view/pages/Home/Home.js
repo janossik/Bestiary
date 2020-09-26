@@ -3,17 +3,12 @@ import Title from '../../../components/atoms/Title/Title';
 import Paragraph from '../../../components/atoms/Paragraph/Paragraph';
 import MainTemplate from '../../templates/MainTemplate';
 import GeraltBackground from '../../../components/molecules/GerlartBackgraund/GeraltBackground';
-
+import ContentBox from '../../../components/atoms/ContentBox/ContentBox';
 const Home = () => {
   return (
     <>
       <MainTemplate>
-        <div
-          style={{
-            backgroundColor: 'rgba(0, 0, 0, 0.7)',
-            padding: '10px 40px',
-          }}
-        >
+        <ContentBox>
           <Title tag="h1">This is title</Title>
           <Paragraph>
             Dolor elit dolore est veniam minim quis laboris. Ex voluptate
@@ -75,7 +70,7 @@ const Home = () => {
             fugiat non ullamco culpa. Aliqua minim officia cupidatat qui amet
             laboris commodo commodo ipsum aliquip duis Lorem ut.
           </Paragraph>
-        </div>
+        </ContentBox>
       </MainTemplate>
       <GeraltBackground />
     </>

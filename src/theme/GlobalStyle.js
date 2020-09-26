@@ -4,7 +4,7 @@ const GlobalStyle = createGlobalStyle`
 *,*::after,*::before {
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
-    
+    user-select: none;
 }
 
 h1{

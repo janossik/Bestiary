@@ -1,12 +1,13 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import styled from 'styled-components';
-import Button from '../../atoms/Button/Button';
-import Song from '../../../assets/Audio/The Witcher.mp3';
-import icons from '../../../assets/image/icons';
+import Button from 'components/atoms/Button/Button';
+import Song from 'assets/Audio/The Witcher.mp3';
+import icons from 'assets/image/icons';
+import AudioContext from 'contexts/AudioContext/AudioContext';
 
 const AudiosBox = styled.section`
   position: fixed;
-  display: flex;
+  display: ${({ activeAudio }) => (activeAudio ? 'flex' : 'none')};
   height: 50px;
   bottom: 10px;
   right: 10px;
@@ -20,9 +21,11 @@ const Image = styled.img`
 `;
 
 const AudioBox = ({ song = Song }) => {
+  const { activeAudio } = useContext(AudioContext);
   const [play, setplay] = useState(false);
   const audio = useRef(null);
   const range = useRef(null);
+
   useEffect(() => {
     range.current.value = 0.3;
     audio.current.volume = range.current.value;
@@ -39,8 +42,8 @@ const AudioBox = ({ song = Song }) => {
   };
 
   return (
-    <div>
-      <AudiosBox opacity={play}>
+    <>
+      <AudiosBox activeAudio={activeAudio}>
         <audio ref={audio}>
           <source src={song} type="audio/mpeg" />
         </audio>
@@ -65,7 +68,7 @@ const AudioBox = ({ song = Song }) => {
           />
         </Button>
       </AudiosBox>
-    </div>
+    </>
   );
 };
 

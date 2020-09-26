@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import Background from '../../atoms/Background/Background';
 import Smoke from '../../../assets/image/Smoke/Smoke-menu-01.png';
 import { smoke__Menu } from '../../../assets/animation/Smoke/smoke.animations';
+import AudioContext from 'contexts/AudioContext/AudioContext';
 
 const WrapperNavigation = styled.nav`
   position: fixed;
@@ -28,6 +29,7 @@ const NavigationList = styled.ul`
       &.active {
         color: ${({ theme }) => theme.color.primary};
         font-size: ${({ theme }) => theme.size.xl};
+        transition: 400ms;
       }
     }
   }
@@ -45,11 +47,11 @@ const WrapperForAnimation = styled.span`
   transform: translateX(${({ transform }) => (transform ? '-200%' : '0%')})
     scale(${({ transform }) => (transform ? '2' : '1')});
   opacity: ${({ transform }) => (transform ? '0' : '1')};
-  transition: 2s ease-out;
+  transition: 1500ms ease-out;
   z-index: 12;
 `;
 
-const Button = styled.button`
+const Hamburger = styled.button`
   position: fixed;
   right: 5px;
   top: 10px;
@@ -61,10 +63,11 @@ const Button = styled.button`
 
 const Navigation = () => {
   const [state, setstate] = useState(true);
+  const { activeAudio, setActiveAudio } = useContext(AudioContext);
   return (
     <>
       <WrapperNavigation>
-        <Button onClick={() => setstate(!state)}>
+        <Hamburger onClick={() => setstate(!state)}>
           <svg
             height="20"
             width="50"
@@ -74,7 +77,7 @@ const Navigation = () => {
             <path d="M 5 8 H 45 V 13 H 5 L5 0" />
             <path d="M 5 16 H 45 V 20 H 5 L5 0" />
           </svg>
-        </Button>
+        </Hamburger>
         <WrapperForAnimation transform={Number(state)}>
           <Background
             image={Smoke}
@@ -97,6 +100,11 @@ const Navigation = () => {
               <NavLink to="/bestiary" active="active">
                 Bestiary
               </NavLink>
+            </li>
+            <li>
+              <button as="button" onClick={() => setActiveAudio(!activeAudio)}>
+                {activeAudio ? 'Hidden control music' : 'Show control music'}
+              </button>
             </li>
           </NavigationList>
         </WrapperForAnimation>

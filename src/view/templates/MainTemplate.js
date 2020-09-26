@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import GlobalStyle from '../../theme/GlobalStyle';
-import Navigation from '../../components/organisms/Navigation/Navigation';
 
 const Content = styled.main`
   width: 100%;
@@ -15,7 +14,6 @@ const Content = styled.main`
 const MainTemplate = ({ children }) => {
   return (
     <>
-      <Navigation />
       <Content>{children}</Content>
       <GlobalStyle />
     </>
